@@ -101,3 +101,6 @@ Functional and timing simulations validate both normal and corner-case operation
 
 Automated coverage metrics quantify verification completeness.
 
+<img width="1189" height="678" alt="Screenshot 2025-06-14 113506" src="https://github.com/user-attachments/assets/56c53a95-ee75-44ac-a346-e5592d465ede" />
+
+
