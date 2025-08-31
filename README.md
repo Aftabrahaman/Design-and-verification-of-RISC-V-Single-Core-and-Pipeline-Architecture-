@@ -9,6 +9,5 @@ This repository contains Verilog HDL source code and verification infrastructure
 - Scripts for simulation and synthesis
 - Waveform and report archives
 
-## Getting Started
-See `docs/architecture.md` and `docs/pipeline.md` for detailed documentation and setup instructions.
+
 
