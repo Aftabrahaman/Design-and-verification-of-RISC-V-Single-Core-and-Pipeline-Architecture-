@@ -1,0 +1,2 @@
+# Design-and-verification-of-RISC-V-Single-Core-and-Pipeline-Architecture-
+This repository contains Verilog HDL source code and verification infrastructure for a 32-bit RISC-V processor implemented in both single-cycle and five-stage pipeline architectures. It documents the design, simulation, synthesis, and validation of both architectures. Modules include program counter, register file, ALU, hazard  units, and more.
