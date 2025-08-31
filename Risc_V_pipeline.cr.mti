@@ -1,0 +1,209 @@
+H:/FInal_year_project_M.sc/Risc_V_pipeline/tb_decode_cycle.sv {1 {vlog -work work -vopt -sv -stats=none H:/FInal_year_project_M.sc/Risc_V_pipeline/tb_decode_cycle.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+-- Compiling module tb
+
+Top level modules:
+	tb
+
+} {} {}} H:/FInal_year_project_M.sc/ALu.sv {1 {vlog -work work -vopt -sv -stats=none H:/FInal_year_project_M.sc/ALu.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+-- Compiling module alu
+
+Top level modules:
+	alu
+
+} {} {}} H:/FInal_year_project_M.sc/Data_memory.sv {1 {vlog -work work -vopt -sv -stats=none H:/FInal_year_project_M.sc/Data_memory.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+-- Compiling module data_mem
+
+Top level modules:
+	data_mem
+
+} {} {}} H:/FInal_year_project_M.sc/Mux.sv {1 {vlog -work work -vopt -sv -stats=none H:/FInal_year_project_M.sc/Mux.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+-- Compiling module mux
+
+Top level modules:
+	mux
+
+} {} {}} H:/FInal_year_project_M.sc/pc_adder.sv {1 {vlog -work work -vopt -sv -stats=none H:/FInal_year_project_M.sc/pc_adder.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+-- Compiling module pc_adder
+
+Top level modules:
+	pc_adder
+
+} {} {}} H:/FInal_year_project_M.sc/Risc_V_pipeline/memory.sv {1 {vlog -work work -vopt -sv -stats=none {H:\FInal_year_project_M.sc\Risc_V_pipeline\memory.sv}
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+-- Compiling module data_mem
+-- Compiling module memory
+
+Top level modules:
+	memory
+
+} {} {}} H:/FInal_year_project_M.sc/Register_file.sv {1 {vlog -work work -vopt -sv -stats=none H:/FInal_year_project_M.sc/Register_file.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+-- Compiling module register
+
+Top level modules:
+	register
+
+} {} {}} H:/FInal_year_project_M.sc/Risc_V_pipeline/execute.sv {1 {vlog -work work -vopt -sv -stats=none {H:\FInal_year_project_M.sc\Risc_V_pipeline\execute.sv}
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+-- Compiling module alu
+-- Compiling module mux
+-- Compiling module pc_adder
+-- Compiling module and_gate
+-- Compiling module execute
+
+Top level modules:
+	execute
+
+} {} {}} H:/FInal_year_project_M.sc/Risc_V_pipeline/writeback.sv {1 {vlog -work work -vopt -sv -stats=none {H:\FInal_year_project_M.sc\Risc_V_pipeline\writeback.sv}
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+-- Compiling module mux
+-- Compiling module writeback
+
+Top level modules:
+	writeback
+
+} {} {}} H:/FInal_year_project_M.sc/Risc_V_pipeline/tb_pipeline_top.sv {0 {vlog -work work -vopt -sv -stats=none {H:\FInal_year_project_M.sc\Risc_V_pipeline\tb_pipeline_top.sv}
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+-- Compiling module tb
+** Error: (vlog-13069) H:\FInal_year_project_M.sc\Risc_V_pipeline\tb_pipeline_top.sv(2): near ";": syntax error, unexpected ';'.
+** Error: H:\FInal_year_project_M.sc\Risc_V_pipeline\tb_pipeline_top.sv(2): (vlog-13205) Syntax error found in the scope following 'rst'. Is there a missing '::'?
+
+} {4.0 6.0} {}} H:/FInal_year_project_M.sc/Risc_V_pipeline/tb_fetch_cycle.sv {1 {vlog -work work -vopt -sv -stats=none H:/FInal_year_project_M.sc/Risc_V_pipeline/tb_fetch_cycle.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+-- Compiling module tb
+
+Top level modules:
+	tb
+
+} {} {}} H:/FInal_year_project_M.sc/Prog_Countr.sv {1 {vlog -work work -vopt -sv -stats=none H:/FInal_year_project_M.sc/Prog_Countr.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+-- Compiling module Prog_C
+
+Top level modules:
+	Prog_C
+
+} {} {}} H:/FInal_year_project_M.sc/main_decoder.sv {1 {vlog -work work -vopt -sv -stats=none H:/FInal_year_project_M.sc/main_decoder.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+-- Compiling module main_decoder
+
+Top level modules:
+	main_decoder
+
+} {} {}} H:/FInal_year_project_M.sc/Top_cycle.sv {1 {vlog -work work -vopt -sv -stats=none H:/FInal_year_project_M.sc/Top_cycle.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+-- Compiling module Prog_C
+-- Compiling module Inst_mem
+-- Compiling module register
+-- Compiling module data_mem
+-- Compiling module extend
+-- Compiling module main_decoder
+-- Compiling module alu_decoder
+-- Compiling module main_control_top
+-- Compiling module pc_adder
+-- Compiling module mux
+-- Compiling module and_gate
+-- Compiling module top_cycle
+
+Top level modules:
+	top_cycle
+
+} {} {}} H:/FInal_year_project_M.sc/Risc_V_pipeline/Pipeline_top.sv {0 {vlog -work work -vopt -sv -stats=none {H:\FInal_year_project_M.sc\Risc_V_pipeline\Pipeline_top.sv}
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+-- Compiling module mux
+-- Compiling module pc_adder
+-- Compiling module Prog_C
+-- Compiling module Inst_mem
+-- Compiling module fetch
+-- Compiling module main_decoder
+-- Compiling module alu_decoder
+-- Compiling module main_control_top
+-- Compiling module register
+-- Compiling module extend
+-- Compiling module decode
+-- Compiling module data_mem
+-- Compiling module memory
+-- Compiling module alu
+** Warning: ** while parsing file included at H:\FInal_year_project_M.sc\Risc_V_pipeline\Pipeline_top.sv(4)
+** while parsing file included at execute.sv(2)
+** at Mux.sv(1): (vlog-2275) 'mux' already exists and will be overwritten.
+-- Compiling module mux
+** Warning: ** while parsing file included at H:\FInal_year_project_M.sc\Risc_V_pipeline\Pipeline_top.sv(4)
+** while parsing file included at execute.sv(3)
+** at pc_adder.sv(1): (vlog-2275) 'pc_adder' already exists and will be overwritten.
+-- Compiling module pc_adder
+-- Compiling module and_gate
+-- Compiling module execute
+** Warning: ** while parsing file included at H:\FInal_year_project_M.sc\Risc_V_pipeline\Pipeline_top.sv(5)
+** while parsing file included at writeback.sv(1)
+** at Mux.sv(1): (vlog-2275) 'mux' already exists and will be overwritten.
+-- Compiling module mux
+-- Compiling module writeback
+-- Compiling module Pipeline_top
+** Error: (vlog-13069) H:\FInal_year_project_M.sc\Risc_V_pipeline\Pipeline_top.sv(62): near "EOF": syntax error, unexpected end of source code.
+
+} {33.0 34.0} {}} H:/FInal_year_project_M.sc/extends.sv {1 {vlog -work work -vopt -sv -stats=none H:/FInal_year_project_M.sc/extends.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+-- Compiling module extend
+
+Top level modules:
+	extend
+
+} {} {}} H:/FInal_year_project_M.sc/and_gate.sv {1 {vlog -work work -vopt -sv -stats=none H:/FInal_year_project_M.sc/and_gate.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+-- Compiling module and_gate
+
+Top level modules:
+	and_gate
+
+} {} {}} H:/FInal_year_project_M.sc/Risc_V_pipeline/fetch.sv {1 {vlog -work work -vopt -sv -stats=none {H:\FInal_year_project_M.sc\Risc_V_pipeline\fetch.sv}
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+-- Compiling module mux
+-- Compiling module pc_adder
+-- Compiling module Prog_C
+-- Compiling module Inst_mem
+-- Compiling module fetch
+
+Top level modules:
+	fetch
+
+} {} {}} H:/FInal_year_project_M.sc/Risc_V_pipeline/decode.sv {1 {vlog -work work -vopt -sv -stats=none {H:\FInal_year_project_M.sc\Risc_V_pipeline\decode.sv}
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+-- Compiling module main_decoder
+-- Compiling module alu_decoder
+-- Compiling module main_control_top
+-- Compiling module register
+-- Compiling module extend
+-- Compiling module decode
+
+Top level modules:
+	decode
+
+} {} {}} H:/FInal_year_project_M.sc/alu_decoder.sv {1 {vlog -work work -vopt -sv -stats=none H:/FInal_year_project_M.sc/alu_decoder.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+-- Compiling module alu_decoder
+
+Top level modules:
+	alu_decoder
+
+} {} {}} H:/FInal_year_project_M.sc/main_controller.sv {1 {vlog -work work -vopt -sv -stats=none H:/FInal_year_project_M.sc/main_controller.sv
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+-- Compiling module main_decoder
+-- Compiling module alu_decoder
+-- Compiling module main_control_top
+
+Top level modules:
+	main_control_top
+
+} {} {}} H:/FInal_year_project_M.sc/Instruction_mem.sv {1 {vlog -work work -vopt -sv -stats=none {H:\FInal_year_project_M.sc\Instruction_mem.sv}
+QuestaSim-64 vlog 10.7c Compiler 2018.08 Aug 18 2018
+-- Compiling module Inst_mem
+
+Top level modules:
+	Inst_mem
+
+} {} {}}

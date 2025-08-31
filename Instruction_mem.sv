@@ -1,0 +1,10 @@
+module Inst_mem(
+input rst,input [31:0] addr, output [31:0] RD);
+reg [31:0] mem [1023:0];
+
+assign RD=(rst==1'b0)?32'h00000000 : mem[addr[31:2]];
+
+initial begin
+$readmemh("memoryfile.hex",mem);
+end
+endmodule

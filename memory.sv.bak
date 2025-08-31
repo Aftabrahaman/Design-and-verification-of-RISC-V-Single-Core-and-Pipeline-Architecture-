@@ -1,0 +1,53 @@
+
+`include "Data_memory.sv"
+
+module memory(
+input clk,rst,
+input [31:0] pctargetE,
+input [31:0] resultM,
+input [31:0] writedataM,
+input [4:0] RdM,
+input  [31:0] pc4M,
+input regwriteM,memwriteM,resultsrcM,pcsrcE,
+
+output regwriteW, resultsrcW,
+output [4:0] RdW,
+output [31:0] pc4W,resultW,ReaddataW); 
+
+/////Declaration of internal wires
+wire [31:0] ReaddataM;
+
+//////Declararion of Internal Registers
+reg regwriteMr, resultsrcMr;
+reg [4:0] RdMr;
+reg [31:0] pc4Mr,resultMr, ReaddataMr;
+
+data_mem mem_dut( .clk(clk),.we(memwriteM),.rst(rst),.addr(resultM), .wd(writedataM), .RD(ReaddataM));
+
+always@(posedge clk or negedge rst)begin
+if (!rst)begin
+regwriteMr<=1'b0;
+resultsrcMr<=1'b0;
+RdMr<=5'b00000;
+pc4Mr<=32'h00000000;
+resultMr<=32'h00000000;
+ReaddataMr<=32'h00000000;
+end
+else begin
+regwriteMr<=regwriteM;
+resultsrcMr<=resultsrcM;
+RdMr<=RdM;
+pc4Mr<=pc4M;
+resultMr<=resultM;
+ReaddataMr<=ReaddataM;
+end
+end
+
+assign regwriteW<=regwriteMr;
+assign resultsrcW<=resultsrcMr;
+assign RdW<=RdMr;
+assign pc4W<=pc4Mr;
+assign resultW<=resultMr;
+assign ReaddataW<=ReaddataMr;
+
+endmodule 

@@ -1,0 +1,89 @@
+`include "main_controller.sv"
+`include "Register_file.sv"
+`include "extends.sv"
+
+module decode (
+input clk,rst,regwriteW,
+input[31:0] instructd,pcd,pc4d,ResultW,
+input [4:0] RdW,
+output regwriteE,memwriteE,branchE,alusrcE, resultsrcE,
+output [2:0] alucontrolE,
+output [31:0] r1E,r2E,
+output [4:0] RdE,
+output [31:0] imm_addrE,
+output [31:0] pcE,pc4E);
+
+///declaration of the internal wire 
+logic regwrite_wire,memwrite_wire,branch_wire,alusrc_wire,resultsrc_wire;
+logic [1:0] imsrc_wire;
+logic [2:0] alucontrol_wire;
+logic [31:0] r1_wire,r2_wire;
+logic [31:0] imm_addr_wire;
+
+
+
+//////creating register
+
+logic control_signal_reg[4:0]; ////regwrite,memwrite,branch,alusrc,resultsrc
+				//// 0        1      2        3      4
+logic [31:0] r1_reg,r2_reg,imm_addr_reg;
+logic [2:0] alu_control_reg;
+logic [31:0] pcd_reg,pc4d_reg;
+logic [4:0] RdD_reg;
+
+ main_control_top main_dut(.op(instructd[6:0]) , .funct7(instructd[31:25]),.funct3(instructd[14:12]),
+				.resultsrc(resultsrc_wire),.memwrite(memwrire_wire),
+				.regwrite(regwrite_wire),.alusrc(alusrc_wire),.branch(branch_wire),
+				.imsrc(imsrc_wire),.alucontrol(alucontrol_wire));
+
+register regis_dut(.clk(clk),.rst(rst),.a1(instructd[19:15]),.a2(instructd[24:20]),.a3(RDW),
+			.we(regwriteW),.wd(ResultW),.r1(r1_wire),.r2(r2_wire));
+
+extend extend_dut(.extend_in(instructd[31:7]),.immsrc(imsrc_wire),.extend_out(imm_addr_wire));
+
+//////implementation of the Register Box 
+
+always@(posedge clk or negedge rst)begin
+if (!rst) begin
+control_signal_reg<='{default: 1'b0};
+r1_reg<=32'h00000000;
+r2_reg<=32'h00000000;
+imm_addr_reg<=32'h00000000;
+alu_control_reg<=3'b000;
+RdD_reg<=5'h00;
+pcd_reg<=32'h00000000;
+pc4d_reg<=32'h00000000;
+
+end
+else begin
+control_signal_reg[0]<=regwrite_wire;
+control_signal_reg[1]<=memwrite_wire;
+control_signal_reg[2]<=branch_wire;
+control_signal_reg[3]<=alusrc_wire;
+control_signal_reg[4]<=resultsrc_wire;
+r1_reg<=r1_wire;
+r2_reg<=r2_wire;
+imm_addr_reg<=imm_addr_wire;
+alu_control_reg<=alucontrol_wire;
+RdD_reg<=instructd[11:7];
+pcd_reg<=pcd;
+pc4d_reg<=pc4d;
+end
+end
+assign regwriteE=(!rst) ? 1'b0 : control_signal_reg[0];
+assign memwriteE=(!rst) ? 1'b0 :control_signal_reg[1];
+assign branchE=(!rst) ? 1'b0 :control_signal_reg[2];
+assign alusrcE=(!rst) ? 1'b0 :control_signal_reg[3];
+assign resultsrcE=(!rst) ? 1'b0 :control_signal_reg[4];
+assign imm_addrE=(!rst) ?32'h00000000 : imm_addr_reg;
+assign  alucontrolE=(!rst) ? 3'b000 :alu_control_reg;
+assign  RdE=(!rst) ? 5'h00 :RdD_reg;
+assign  pcE=(!rst) ? 32'h00000000 :pcd_reg;
+assign pc4E=(!rst) ? 32'h00000000:pc4d_reg;
+assign r1E=(!rst) ?32'h00000000: r1_reg;
+assign r2E=(!rst) ?32'h00000000: r2_reg;
+
+endmodule 
+
+
+

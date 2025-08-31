@@ -1,0 +1,19 @@
+`include "main_controller.sv"
+`include "Register_file.sv"
+`include "extends.sv"
+
+module decode (
+input clk,rst,
+input[31:0] instructd,pcd,pc4d,
+output regwriteE,memwriteE,branchE,alusrcE,
+output[1:0] resultsrcE,
+output [2:0] alucontrolE);
+
+ main_control_top main_dut(.op(instructd[6:0]) , .funct7(instructd[31:25]),.funct3(instructd[14:12]),.resultsrc(),.memwrite(),
+				.regwrite(),.alusrc(),.branch(),.imsrc(),.alucontrol());
+
+register regis_dut(.clk(),.rst(),.a1(instructd[19:15]),.a2(instructd[24:20]),.a3(),.we(),.wd(),.r1(),.r2());
+extend extend_dut(.extend_in(instructd[31:7]),.immsrc(),.extend_out());
+
+
+

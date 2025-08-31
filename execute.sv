@@ -1,0 +1,71 @@
+`include "ALu.sv"
+`include "Mux.sv"
+`include "pc_adder.sv"
+`include "and_gate.sv"
+
+module execute (
+input clk,rst,
+input  regwriteE,memwriteE,branchE,alusrcE, resultsrcE,
+input  [2:0] alucontrolE,
+input  [31:0] r1,r2,
+input  [31:0] imm_addrE,
+input  [4:0] RdE,
+input  [31:0] pcE,pc4E,
+
+output [31:0] pctargetE,
+output [31:0] resultM,
+output [31:0] writedataM,
+output [4:0] RdM,
+output  [31:0] pc4M,
+output regwriteM,memwriteM,resultsrcM,pcsrcE);
+
+wire [31:0] srcb,result_wire;
+wire zero;
+
+reg [31:0] alu_result_reg,write_data_reg,pc4_reg;
+reg [4:0] Rd_reg;
+reg regwrite_reg,memwrite_reg,resultsrc_reg;
+
+alu alu_dut ( .a(r1),.b(srcb),.alucontroll(alucontrolE),
+ .carry() ,.overflow() , .zero(zero), .negative() ,
+ .result(result_wire) );
+
+
+mux mux_dut2(.a(r2),.b(imm_addrE),.s(alusrc),.c(srcb));
+
+pc_adder pc_adder_dut(.a(pcE),.b(imm_addrE),.c(pctargetE));
+
+
+always@(posedge clk or negedge rst)begin
+if(!rst)begin
+alu_result_reg<=32'h00000000;
+write_data_reg<=32'h00000000;
+pc4_reg<=32'h00000000;
+Rd_reg<=5'h00;
+regwrite_reg<=1'b0;
+memwrite_reg<=1'b0;
+resultsrc_reg<=1'b0;
+end
+else begin
+alu_result_reg<=result_wire;
+write_data_reg<=r2;
+pc4_reg<=pc4E;
+Rd_reg<=RdE;
+regwrite_reg<=regwriteE;
+memwrite_reg<=memwriteE;
+resultsrc_reg<=resultsrcE;
+end
+end
+
+assign resultM=(!rst) ? 32'h00000000 : alu_result_reg;
+assign pc4M=(!rst) ? 32'h00000000 : pc4_reg;
+assign RdM=(!rst) ? 5'h00 : Rd_reg;
+assign regwriteM=(!rst) ? 1'b0 : regwrite_reg;
+assign memwritem=(!rst) ? 1'b0 : memwrite_reg;
+assign resultsrcM=(!rst) ? 1'b0 : resultsrc_reg;
+assign writedataM=(!rst) ? 32'h00000000 : write_data_reg;
+assign pcsrcE =(!rst) ? 1'b0 : zero & branchE;
+
+endmodule 
+
+

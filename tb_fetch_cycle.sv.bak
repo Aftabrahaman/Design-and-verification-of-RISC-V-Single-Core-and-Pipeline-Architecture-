@@ -1,0 +1,30 @@
+'timescale 1ns/1ps 
+module tb();
+logic clk,rst,pcsrc;
+logic [31:0] pctarget ;
+logic [31:0] instruction ,pc ,pc4;
+
+fetch fetch_duty(.clk(clk),.rst(rst),.pcsrc(pcsrc),.pctarget(pctarget),.instruction(instruction),.pc(pc),.pc4(pc4));
+
+initial begin
+clk=0;
+rst=0;
+end
+
+always #10 clk=~clk;
+
+initial begin
+#20;
+rst=1'b1;
+pcsrc=1'b0;
+pctarget=32'h00000000;
+#300;
+$finish();
+end
+
+initial begin
+$dumpfile("fetch.vcd");
+$dumpvars;
+end
+
+endmodule 
